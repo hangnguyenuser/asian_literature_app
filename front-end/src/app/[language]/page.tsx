@@ -10,6 +10,13 @@ type Props = {
   params: { language: string };
 };
 
+const books = [
+  { title: "Book 1", genre: "Fiction", country: "Vietnam" },
+  { title: "Book 2", genre: "Fantasy", country: "Japan" },
+  { title: "Book 3", genre: "Non-Fiction", country: "USA" },
+  { title: "Book 4", genre: "Historical", country: "France" },
+];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { t } = await getServerTranslation(params.language, "home");
 
@@ -51,6 +58,16 @@ export default async function Home({ params }: Props) {
               ]}
             />
           </Typography>
+          <Typography variant="h4" gutterBottom>
+            Books
+          </Typography>
+          <ul>
+            {books.map((book, index) => (
+              <li key={index}>
+                {book.title} - {book.genre} ({book.country})
+              </li>
+            ))}
+          </ul>
         </Grid>
         <Grid item sx={{ mx: "auto" }}>
           <MuiLink href="/privacy-policy">Privacy Policy</MuiLink>
