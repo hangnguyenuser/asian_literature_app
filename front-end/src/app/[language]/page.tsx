@@ -13,16 +13,16 @@ type Props = {
 
 const books = [
   {
-    title: "Book 1",
-    genre: "Fiction",
-    country: "Vietnam",
+    title: "Days at the Morisaki Bookshop",
+    genre: "Literary Fiction",
+    country: "Japan",
     image: "/images/morisaki.jpg", // Replace with actual image URL
   },
   {
-    title: "Book 2",
-    genre: "Non-Fiction",
-    country: "Vietnam",
-    image: "/images/morisaki.jpg", // Replace with actual image URL
+    title: "The God of Small Things",
+    genre: "Family Drama",
+    country: "India",
+    image: "/images/roy.jpg", // Replace with actual image URL
   },
   // Add more books as needed
 ];
@@ -49,23 +49,8 @@ export default async function Home({ params }: Props) {
         sx={{ height: "90vh", justifyContent: "space-between" }}
       >
         <Grid item>
-          <Typography variant="h3" data-testid="home-title" gutterBottom>
-            {t("title")}
-          </Typography>
           <Typography>
             <Trans
-              i18nKey={`description`}
-              t={t}
-              components={[
-                <MuiLink
-                  key="1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://github.com/brocoders/extensive-react-boilerplate/blob/main/docs/README.md"
-                >
-                  {}
-                </MuiLink>,
-              ]}
             />
           </Typography>
           <Typography variant="h4" gutterBottom>
@@ -84,8 +69,8 @@ export default async function Home({ params }: Props) {
                 <Image
                   src={book.image}
                   alt={`Cover of ${book.title}`}
-                  width={50}
-                  height={75}
+                  width={200}
+                  height={300}
                   style={{ marginRight: "1rem" }}
                 />
                 <span>
