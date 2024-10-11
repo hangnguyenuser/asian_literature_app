@@ -5,16 +5,26 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import MuiLink from "@mui/material/Link";
 import { Trans } from "react-i18next/TransWithoutContext";
+import Image from "next/image";
 
 type Props = {
   params: { language: string };
 };
 
 const books = [
-  { title: "Book 1", genre: "Fiction", country: "Vietnam" },
-  { title: "Book 2", genre: "Fantasy", country: "Japan" },
-  { title: "Book 3", genre: "Non-Fiction", country: "USA" },
-  { title: "Book 4", genre: "Historical", country: "France" },
+  {
+    title: "Book 1",
+    genre: "Fiction",
+    country: "Vietnam",
+    image: "/images/morisaki.jpg", // Replace with actual image URL
+  },
+  {
+    title: "Book 2",
+    genre: "Non-Fiction",
+    country: "Vietnam",
+    image: "/images/morisaki.jpg", // Replace with actual image URL
+  },
+  // Add more books as needed
 ];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -63,8 +73,24 @@ export default async function Home({ params }: Props) {
           </Typography>
           <ul>
             {books.map((book, index) => (
-              <li key={index}>
-                {book.title} - {book.genre} ({book.country})
+              <li
+                key={index}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "1rem",
+                }}
+              >
+                <Image
+                  src={book.image}
+                  alt={`Cover of ${book.title}`}
+                  width={50}
+                  height={75}
+                  style={{ marginRight: "1rem" }}
+                />
+                <span>
+                  {book.title} - {book.genre} ({book.country})
+                </span>
               </li>
             ))}
           </ul>

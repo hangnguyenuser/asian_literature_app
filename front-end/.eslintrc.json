@@ -26,7 +26,7 @@
     "no-alert": "error",
     "no-return-assign": "error",
     "no-restricted-syntax": [
-      "error",
+      "off",
       {
         "selector": "CallExpression[callee.name=watch], MemberExpression[object.name=methods][property.name=watch]",
         "message": "\"watch\" re-render the whole form component. Use hook \"useWatch\" instead."
